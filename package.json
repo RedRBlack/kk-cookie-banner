@@ -1,0 +1,24 @@
+{
+  "name": "kk-cookie-banner",
+  "version": "1.0.0",
+  "description": "GDPR complaint cookie banner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedRBlack/kk-cookie-banner.git"
+  },
+  "keywords": [
+    "cookie",
+    "banner",
+    "GDPR"
+  ],
+  "author": "Matej Kapinaj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RedRBlack/kk-cookie-banner/issues"
+  },
+  "homepage": "https://github.com/RedRBlack/kk-cookie-banner#readme"
+}
