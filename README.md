@@ -24,6 +24,7 @@ npm install react js-cookie crypto-js
 # Import the Component
 First, import the CookieBanner component into your React application:
 
+``` react
 import React from 'react';
 import CookieBanner from 'my-cookie-banner';
 
@@ -42,6 +43,7 @@ const App = () => {
 };
 
 export default App;
+```
 
 ## Add API Route
 Create an API route to handle the consent data. Here's an example of a Next.js API route:
