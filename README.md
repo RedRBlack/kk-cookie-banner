@@ -13,11 +13,15 @@ A reusable cookie consent banner component for React applications. This componen
 
 To install the package, run:
 
+```
 npm install kk-cookie-banner
+```
 
 You'll also need to have react, js-cookie, and crypto-js installed in your project. If they are not already installed, you can install them using:
 
+```
 npm install react js-cookie crypto-js
+```
 
 ## Usage
 
@@ -48,6 +52,7 @@ export default App;
 ## Add API Route
 Create an API route to handle the consent data. Here's an example of a Next.js API route:
 
+```jsx
 // pages/api/set-consent.js
 
 import { NextResponse } from 'next/server';
@@ -89,6 +94,7 @@ export async function POST(request) {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
+```
 
 ## Environment Variables
 
@@ -99,12 +105,69 @@ NEXT_PUBLIC_MEASUREMENT_ID: Your Google Analytics measurement ID.
 
 You can set these variables in a .env file:
 
+```
 NEXT_PUBLIC_SECRET_KEY_CONSENT=your-secret-key
 NEXT_PUBLIC_MEASUREMENT_ID=your-measurement-id
+```
 
-## Customize the Banner
+## Customise the Banner
 
-You can customize the styles and text of the banner by modifying the CookieBanner component. The default styles are defined in the styles object within the component.
+The CookieBanner component's appearance can be easily customised by targeting its CSS classes, IDs and elements. Here's an example of how you can modify the styles:
+
+
+```css
+/* Style the main banner container */
+.consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;  /* Black background */
+  color: #fff;             /* White text */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style the text within the banner */
+.consent-banner p {
+  margin-bottom: 15px;
+}
+
+/* Style the checkboxes container */
+.consent-banner #consent-checkboxes {
+  display: flex;          /* Arrange checkboxes horizontally */
+  justify-content: center; /* Center the checkboxes */
+}
+
+/* Style individual checkbox sections */
+.consent-banner #consent-necessary,
+.consent-banner #consent-preferences,
+.consent-banner #consent-statistics,
+.consent-banner #consent-marketing {
+  margin: 0 10px; /* Add spacing between sections */
+}
+
+/* Style individual checkbox labels */
+.consent-banner label {
+  display: block;         /* Ensure each label takes full width */
+  text-align: left;       /* Align checkbox text to the left */
+}
+
+/* Style the "Accept" button */
+.consent-banner #consent-button {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+```
+
 
 ## License
 
