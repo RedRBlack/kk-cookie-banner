@@ -24,7 +24,7 @@ npm install react js-cookie crypto-js
 # Import the Component
 First, import the CookieBanner component into your React application:
 
-``` react
+```jsx
 import React from 'react';
 import CookieBanner from 'my-cookie-banner';
 
