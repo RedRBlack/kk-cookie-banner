@@ -1,7 +1,7 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import CryptoJS from 'crypto-js';
-import './banner.css';
 
 const CookieBanner = ({ secretKey, measurementId, apiEndpoint, domain = 'localhost' }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -122,47 +122,97 @@ const CookieBanner = ({ secretKey, measurementId, apiEndpoint, domain = 'localho
         )}
         {isVisible && (
             <div className="banner">
+              <style jsx>{`
+                .banner {
+                  position: fixed;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  background-color: #000;
+                  color: #fff;
+                  padding: 10px;
+                  text-align: center;
+                }
+
+                .banner button {
+                  margin-left: 10px;
+                  margin-top: 10px;
+                  padding: 5px 10px;
+                  cursor: pointer;
+                  border: 1px solid #fff;
+                  border-radius: 10px;
+                }
+              `}</style>
                 <p>We use cookies to improve your experience on our site. By using our site, you consent to cookies.</p>
-                <div>
-                    <label>
-                    <input
-                        type="checkbox"
-                        checked={consent.necessary}
-                        onChange={() => handleCategoryChange('necessary')}
-                        disabled
-                    />
-                    Necessary
-                    </label>
-                    <label>
-                    <input
-                        type="checkbox"
-                        checked={consent.preferences}
-                        onChange={() => handleCategoryChange('preferences')}
-                    />
-                    Preferences
-                    </label>
-                    <label>
-                    <input
-                        type="checkbox"
-                        checked={consent.statistics}
-                        onChange={() => handleCategoryChange('statistics')}
-                    />
-                    Statistics
-                    </label>
-                    <label>
-                    <input
-                        type="checkbox"
-                        checked={consent.marketing}
-                        onChange={() => handleCategoryChange('marketing')}
-                    />
-                    Marketing
-                    </label>
+                <div id="consent-checkboxes">
+                    <div id="consent-necessary">
+                      <label>
+                        <input
+                            type="checkbox"
+                            checked={consent.necessary}
+                            onChange={() => handleCategoryChange('necessary')}
+                            disabled
+                        />
+                        Necessary
+                      </label>
+                    </div>
+                    <div id="consent-preferences">
+                      <label>
+                        <input
+                            type="checkbox"
+                            checked={consent.preferences}
+                            onChange={() => handleCategoryChange('preferences')}
+                        />
+                        Preferences
+                      </label>
+                    </div>
+                    <div id="consent-statistics">
+                      <label>
+                        <input
+                            type="checkbox"
+                            checked={consent.statistics}
+                            onChange={() => handleCategoryChange('statistics')}
+                        />
+                        Statistics
+                      </label>
+                    </div>
+                    <div id="consent-marketing">
+                      <label>
+                        <input
+                            type="checkbox"
+                            checked={consent.marketing}
+                            onChange={() => handleCategoryChange('marketing')}
+                        />
+                        Marketing
+                      </label>
+                    </div>
                 </div>
-                <button onClick={handleAccept} style={styles.button}>Accept</button>
+                <button onClick={handleAccept} id="consent-button" style={{ marginLeft: '10px', marginTop: '10px', padding: '5px 10px', cursor: 'pointer', border: '1px solid #fff', borderRadius: '10px' }}>Accept</button>
             </div>
         )}
     </>
   );
+};
+
+const styles = {
+  banner: {
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: '#000',
+    color: '#fff',
+    padding: '10px',
+    textAlign: 'center',
+  },
+  button: {
+    marginLeft: '10px',
+    marginTop: '10px',
+    padding: '5px 10px',
+    cursor: 'pointer',
+    border: '1px solid #fff',
+    borderRadius: '10px',
+  },
 };
 
 export default CookieBanner;

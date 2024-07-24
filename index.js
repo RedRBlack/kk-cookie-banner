@@ -1,3 +1,4 @@
 import CookieBanner from './src/components/CookieBanner';
-
-export { CookieBanner };
+import { POST } from './src/api/set-consent/set-consent';
+// import './src/styles/banner.module.css';
+export { CookieBanner, POST };
